@@ -163,7 +163,7 @@ Paleta de bosque y arena: verdes profundos de la familia del logo sobre neutros 
 
 **Character:** geometría europea y serena con una sola voz cálida. Clash Display da al wordmark "Edennia" un cuerpo moderno y alto que se lee aun parcialmente tapado por la casa; General Sans comparte su ADN pero se suaviza a tamaños de texto; la itálica serif es la única concesión al trazo caligráfico del logo.
 
-**Par alternativo (B):** Cabinet Grotesk (display) + Switzer (texto) + Zodiak Italic (acento), las tres de Fontshare. Más sobrio y "suizo": mejor si se prioriza la densidad del panel admin sobre el carácter del hero; el wordmark pierde algo de personalidad. *Pendiente de confirmación del cliente; los tokens usan el par A.*
+**Par A confirmado por el cliente (2026-11-01).** Descartado: Cabinet Grotesk + Switzer + Zodiak (más sobrio, pero el wordmark perdía personalidad).
 
 **Ambos pares:** verificar en Fase 2 cobertura Latin Extended (ñ, á, ü, ß para un futuro alemán) y cifras tabulares (`tnum`) para tablas y precios; si General Sans no trae `tnum`, las tablas del admin usan la pila del sistema para cifras.
 

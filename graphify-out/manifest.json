@@ -1,0 +1,110 @@
+{
+  "docs/DESIGN.md": {
+    "mtime": 1793577478.717337,
+    "seen": 1793577524.3649635,
+    "ast_hash": "aa9fdf4f65fe0376da7b984a526de3a2",
+    "semantic_hash": "aa9fdf4f65fe0376da7b984a526de3a2"
+  },
+  "docs/MASTERPLAN.md": {
+    "mtime": 1793575041.5916317,
+    "seen": 1793577524.3649693,
+    "ast_hash": "523a9b9bcf61a0e035af0bdbff224cfd",
+    "semantic_hash": "523a9b9bcf61a0e035af0bdbff224cfd"
+  },
+  "docs/PRODUCT.md": {
+    "mtime": 1793576363.640379,
+    "seen": 1793577524.3649716,
+    "ast_hash": "8b87dfc58f3433ebc6f65b6cf1752c06",
+    "semantic_hash": "8b87dfc58f3433ebc6f65b6cf1752c06"
+  },
+  "docs/design/reference-analysis.md": {
+    "mtime": 1793576495.1099849,
+    "seen": 1793577524.3649728,
+    "ast_hash": "13ecf80e8c1e6ef0d314d8c3fa81783f",
+    "semantic_hash": "13ecf80e8c1e6ef0d314d8c3fa81783f"
+  },
+  "docs/design/shape/dashboard.md": {
+    "mtime": 1793576756.4277885,
+    "seen": 1793577524.3649738,
+    "ast_hash": "5b8b54ecb8934fdc403f32314770e190",
+    "semantic_hash": "5b8b54ecb8934fdc403f32314770e190"
+  },
+  "docs/design/shape/explorador.md": {
+    "mtime": 1793576747.5797734,
+    "seen": 1793577524.3649745,
+    "ast_hash": "18c1c5d21d13e9d0d9642b5699a47bb6",
+    "semantic_hash": "18c1c5d21d13e9d0d9642b5699a47bb6"
+  },
+  "docs/design/shape/ficha.md": {
+    "mtime": 1793576748.4540775,
+    "seen": 1793577524.3649757,
+    "ast_hash": "3cb92e81f80cba08e2c6f3a3e0fbf8b0",
+    "semantic_hash": "3cb92e81f80cba08e2c6f3a3e0fbf8b0"
+  },
+  "docs/design/shape/home.md": {
+    "mtime": 1793576746.6919382,
+    "seen": 1793577524.3649764,
+    "ast_hash": "c3dad050deb5e40ff5724ab1e344b952",
+    "semantic_hash": "c3dad050deb5e40ff5724ab1e344b952"
+  },
+  "docs/design/shape/login.md": {
+    "mtime": 1793576749.3506105,
+    "seen": 1793577524.364977,
+    "ast_hash": "8d13e65bcb81eae3f13711bf2f690832",
+    "semantic_hash": "8d13e65bcb81eae3f13711bf2f690832"
+  },
+  "docs/brand/logo-color.png": {
+    "mtime": 1793574636.4850867,
+    "seen": 1793577524.3649778,
+    "ast_hash": "52f37f5a1eaf512df5d447b50e0301be",
+    "semantic_hash": "52f37f5a1eaf512df5d447b50e0301be"
+  },
+  "docs/brand/logo-white.png": {
+    "mtime": 1793574650.759507,
+    "seen": 1793577524.3649788,
+    "ast_hash": "f861da16426daa8f9f99b34ad26e7b43",
+    "semantic_hash": "f861da16426daa8f9f99b34ad26e7b43"
+  },
+  "docs/references/01-listado-mapa-humee.png": {
+    "mtime": 1793574308.0516107,
+    "seen": 1793577524.3649797,
+    "ast_hash": "debdbd37d92b3db04256680db4277ecf",
+    "semantic_hash": "debdbd37d92b3db04256680db4277ecf"
+  },
+  "docs/references/02-detalle-propiedad.png": {
+    "mtime": 1793574347.9507096,
+    "seen": 1793577524.3649805,
+    "ast_hash": "925ad68f72a3ba4d403003f872fec851",
+    "semantic_hash": "925ad68f72a3ba4d403003f872fec851"
+  },
+  "docs/references/03-listado-flitros-reall.png": {
+    "mtime": 1793574386.522069,
+    "seen": 1793577524.3649812,
+    "ast_hash": "1075ef5bf4d9cbbd3648ab79d0aa9d11",
+    "semantic_hash": "1075ef5bf4d9cbbd3648ab79d0aa9d11"
+  },
+  "docs/references/04-landing-hero-nuffo.png": {
+    "mtime": 1793574423.128795,
+    "seen": 1793577524.3649821,
+    "ast_hash": "94241ecb777aa38f0e65bedc2201c924",
+    "semantic_hash": "94241ecb777aa38f0e65bedc2201c924"
+  },
+  "docs/references/05-landing-estateedge.png": {
+    "mtime": 1793574500.6240063,
+    "seen": 1793577524.3649828,
+    "ast_hash": "9facd4e92441896638ccf9edc182342f",
+    "semantic_hash": "9facd4e92441896638ccf9edc182342f"
+  },
+  "docs/references/06-dashboard.png": {
+    "mtime": 1793574529.6627414,
+    "seen": 1793577524.3649836,
+    "ast_hash": "2bc010ec50e8dde4617714c02b1dc25d",
+    "semantic_hash": "2bc010ec50e8dde4617714c02b1dc25d"
+  },
+  "docs/references/07-login-realnest.png": {
+    "mtime": 1793574600.773132,
+    "seen": 1793577524.3649843,
+    "ast_hash": "58c9cc8a89271cc72968c71c933d77dc",
+    "semantic_hash": "58c9cc8a89271cc72968c71c933d77dc"
+  }
+}
