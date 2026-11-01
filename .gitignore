@@ -1,0 +1,45 @@
+# deps
+node_modules/
+.pnpm-store/
+
+# next / turbo / build
+.next/
+out/
+build/
+dist/
+.turbo/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+# env (nunca commitear secretos)
+.env
+.env*.local
+.env.*
+!.env.example
+
+# supabase
+supabase/.branches/
+supabase/.temp/
+supabase/functions/**/.env
+
+# tests
+coverage/
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+
+# graphify
+graphify-out/cache/
+
+# claude (local, por usuario)
+.claude/settings.local.json
+
+# logs / os / editor
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+.idea/
