@@ -1,0 +1,1 @@
+{ "extends": "@edennia/config/tsconfig.base.json", "include": ["src"] }
