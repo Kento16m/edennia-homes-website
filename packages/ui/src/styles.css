@@ -82,6 +82,12 @@
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    caret-color: var(--color-forest-600);
+    accent-color: var(--color-forest-900);
+  }
+  ::selection {
+    background-color: var(--color-leaf-400);
+    color: var(--color-ink);
   }
   :focus-visible {
     outline: 2px solid var(--color-forest-600);

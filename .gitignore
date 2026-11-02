@@ -43,3 +43,6 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 .idea/
+
+# capturas de revisión (impeccable)
+.impeccable/review/
