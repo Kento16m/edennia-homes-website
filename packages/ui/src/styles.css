@@ -74,6 +74,8 @@
   --font-display: var(--font-clash-display), var(--font-general-sans), system-ui, sans-serif;
   --font-sans: var(--font-general-sans), system-ui, sans-serif;
   --font-accent: var(--font-instrument-serif), Georgia, serif;
+  /* Clash Display / General Sans have proportional digits and no `tnum`: aligned figures use the system face. */
+  --font-numeric: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
 }
 
 @layer base {

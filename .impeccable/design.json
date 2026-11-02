@@ -1,0 +1,467 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02T00:21:39.198795+00:00",
+  "title": "Design System: Edennia Homes",
+  "extensions": {
+    "colorMeta": {
+      "forest-900": {
+        "role": "primary",
+        "displayName": "Verde Bosque",
+        "canonical": "oklch(32.1% 0.067 156)",
+        "tonalRamp": [
+          "oklch(15% 0.027 156)",
+          "oklch(26% 0.040 156)",
+          "oklch(38% 0.051 156)",
+          "oklch(49% 0.062 156)",
+          "oklch(61% 0.062 156)",
+          "oklch(72% 0.051 156)",
+          "oklch(84% 0.040 156)",
+          "oklch(95% 0.027 156)"
+        ]
+      },
+      "forest-600": {
+        "role": "primary",
+        "displayName": "Verde Follaje",
+        "canonical": "oklch(51.2% 0.125 150)",
+        "tonalRamp": [
+          "oklch(15% 0.051 150)",
+          "oklch(26% 0.075 150)",
+          "oklch(38% 0.097 150)",
+          "oklch(49% 0.116 150)",
+          "oklch(61% 0.116 150)",
+          "oklch(72% 0.097 150)",
+          "oklch(84% 0.075 150)",
+          "oklch(95% 0.051 150)"
+        ]
+      },
+      "leaf-400": {
+        "role": "secondary",
+        "displayName": "Verde Hoja",
+        "canonical": "oklch(72.1% 0.180 140)",
+        "tonalRamp": [
+          "oklch(15% 0.072 140)",
+          "oklch(26% 0.108 140)",
+          "oklch(38% 0.138 140)",
+          "oklch(49% 0.166 140)",
+          "oklch(61% 0.166 140)",
+          "oklch(72% 0.138 140)",
+          "oklch(84% 0.108 140)",
+          "oklch(95% 0.072 140)"
+        ]
+      },
+      "sand-100": {
+        "role": "neutral",
+        "displayName": "Arena",
+        "canonical": "oklch(95.3% 0.011 85)",
+        "tonalRamp": [
+          "oklch(15% 0.005 85)",
+          "oklch(26% 0.007 85)",
+          "oklch(38% 0.009 85)",
+          "oklch(49% 0.011 85)",
+          "oklch(61% 0.011 85)",
+          "oklch(72% 0.009 85)",
+          "oklch(84% 0.007 85)",
+          "oklch(95% 0.005 85)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "oklch(98.4% 0.004 106)",
+        "tonalRamp": [
+          "oklch(15% 0.004 106)",
+          "oklch(26% 0.004 106)",
+          "oklch(38% 0.004 106)",
+          "oklch(49% 0.004 106)",
+          "oklch(61% 0.004 106)",
+          "oklch(72% 0.004 106)",
+          "oklch(84% 0.004 106)",
+          "oklch(95% 0.004 106)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(26% 0.000 90)",
+          "oklch(38% 0.000 90)",
+          "oklch(49% 0.000 90)",
+          "oklch(61% 0.000 90)",
+          "oklch(72% 0.000 90)",
+          "oklch(84% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "oklch(18.8% 0.007 135)",
+        "tonalRamp": [
+          "oklch(15% 0.003 135)",
+          "oklch(26% 0.004 135)",
+          "oklch(38% 0.005 135)",
+          "oklch(49% 0.006 135)",
+          "oklch(61% 0.006 135)",
+          "oklch(72% 0.005 135)",
+          "oklch(84% 0.004 135)",
+          "oklch(95% 0.003 135)"
+        ]
+      },
+      "stone-500": {
+        "role": "neutral",
+        "displayName": "Piedra",
+        "canonical": "oklch(51.5% 0.012 131)",
+        "tonalRamp": [
+          "oklch(15% 0.005 131)",
+          "oklch(26% 0.007 131)",
+          "oklch(38% 0.009 131)",
+          "oklch(49% 0.011 131)",
+          "oklch(61% 0.011 131)",
+          "oklch(72% 0.009 131)",
+          "oklch(84% 0.007 131)",
+          "oklch(95% 0.005 131)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Línea",
+        "canonical": "oklch(91.0% 0.011 90)",
+        "tonalRamp": [
+          "oklch(15% 0.005 90)",
+          "oklch(26% 0.007 90)",
+          "oklch(38% 0.009 90)",
+          "oklch(49% 0.010 90)",
+          "oklch(61% 0.010 90)",
+          "oklch(72% 0.009 90)",
+          "oklch(84% 0.007 90)",
+          "oklch(95% 0.005 90)"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Línea fuerte",
+        "canonical": "oklch(62.8% 0.013 129)",
+        "tonalRamp": [
+          "oklch(15% 0.005 129)",
+          "oklch(26% 0.008 129)",
+          "oklch(38% 0.010 129)",
+          "oklch(49% 0.012 129)",
+          "oklch(61% 0.012 129)",
+          "oklch(72% 0.010 129)",
+          "oklch(84% 0.008 129)",
+          "oklch(95% 0.005 129)"
+        ]
+      },
+      "status-available-bg": {
+        "role": "neutral",
+        "displayName": "Fondo Disponible",
+        "canonical": "oklch(94.4% 0.032 137)",
+        "tonalRamp": [
+          "oklch(15% 0.013 137)",
+          "oklch(26% 0.019 137)",
+          "oklch(38% 0.025 137)",
+          "oklch(49% 0.030 137)",
+          "oklch(61% 0.030 137)",
+          "oklch(72% 0.025 137)",
+          "oklch(84% 0.019 137)",
+          "oklch(95% 0.013 137)"
+        ]
+      },
+      "status-reserved-bg": {
+        "role": "neutral",
+        "displayName": "Fondo Reservado",
+        "canonical": "oklch(95.5% 0.036 86)",
+        "tonalRamp": [
+          "oklch(15% 0.015 86)",
+          "oklch(26% 0.022 86)",
+          "oklch(38% 0.028 86)",
+          "oklch(49% 0.034 86)",
+          "oklch(61% 0.034 86)",
+          "oklch(72% 0.028 86)",
+          "oklch(84% 0.022 86)",
+          "oklch(95% 0.015 86)"
+        ]
+      },
+      "status-reserved-text": {
+        "role": "neutral",
+        "displayName": "Texto Reservado",
+        "canonical": "oklch(47.1% 0.099 76)",
+        "tonalRamp": [
+          "oklch(15% 0.040 76)",
+          "oklch(26% 0.059 76)",
+          "oklch(38% 0.076 76)",
+          "oklch(49% 0.091 76)",
+          "oklch(61% 0.091 76)",
+          "oklch(72% 0.076 76)",
+          "oklch(84% 0.059 76)",
+          "oklch(95% 0.040 76)"
+        ]
+      },
+      "status-sold-bg": {
+        "role": "neutral",
+        "displayName": "Fondo Vendido",
+        "canonical": "oklch(92.8% 0.008 91)",
+        "tonalRamp": [
+          "oklch(15% 0.003 91)",
+          "oklch(26% 0.005 91)",
+          "oklch(38% 0.006 91)",
+          "oklch(49% 0.008 91)",
+          "oklch(61% 0.008 91)",
+          "oklch(72% 0.006 91)",
+          "oklch(84% 0.005 91)",
+          "oklch(95% 0.003 91)"
+        ]
+      },
+      "danger": {
+        "role": "error",
+        "displayName": "Error",
+        "canonical": "oklch(50.0% 0.182 30)",
+        "tonalRamp": [
+          "oklch(15% 0.073 30)",
+          "oklch(26% 0.109 30)",
+          "oklch(38% 0.140 30)",
+          "oklch(49% 0.169 30)",
+          "oklch(61% 0.169 30)",
+          "oklch(72% 0.140 30)",
+          "oklch(84% 0.109 30)",
+          "oklch(95% 0.073 30)"
+        ]
+      },
+      "danger-bg": {
+        "role": "error",
+        "displayName": "Fondo Error",
+        "canonical": "oklch(95.6% 0.019 26)",
+        "tonalRamp": [
+          "oklch(15% 0.008 26)",
+          "oklch(26% 0.011 26)",
+          "oklch(38% 0.014 26)",
+          "oklch(49% 0.017 26)",
+          "oklch(61% 0.017 26)",
+          "oklch(72% 0.014 26)",
+          "oklch(84% 0.011 26)",
+          "oklch(95% 0.008 26)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "Solo \"Edennia\" en el hero, uno por sitio."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titular de sección principal."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de sección y de ficha."
+      },
+      "title-lg": {
+        "displayName": "Title Lg",
+        "purpose": "Precios destacados, KPIs."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Títulos de tarjeta y módulos."
+      },
+      "body-lg": {
+        "displayName": "Body Lg",
+        "purpose": "Entradillas y descripciones."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto general y formularios."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Metadatos, ayudas, celdas."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Etiquetas en versalitas, eco de HOMES."
+      },
+      "accent": {
+        "displayName": "Accent",
+        "purpose": "Una palabra itálica por titular, nunca en el panel."
+      }
+    },
+    "shadows": [
+      {
+        "name": "xs",
+        "value": "0 1px 2px rgb(18 20 17 / 0.04)",
+        "purpose": "Separación mínima de tarjetas sobre papel."
+      },
+      {
+        "name": "sm",
+        "value": "0 2px 8px -2px rgb(18 20 17 / 0.06), 0 1px 2px rgb(18 20 17 / 0.04)",
+        "purpose": "Hover de tarjetas."
+      },
+      {
+        "name": "md",
+        "value": "0 12px 32px -12px rgb(15 61 36 / 0.18), 0 2px 6px rgb(18 20 17 / 0.05)",
+        "purpose": "Elementos flotantes."
+      },
+      {
+        "name": "lg",
+        "value": "0 24px 64px -24px rgb(15 61 36 / 0.28)",
+        "purpose": "Modales, lightbox, bottom sheet."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-soft",
+        "value": "cubic-bezier(0.215, 0.61, 0.355, 1)",
+        "purpose": "power3.out: easing base de UI y GSAP."
+      },
+      {
+        "name": "duration-micro",
+        "value": "150-200ms",
+        "purpose": "Hover y foco (CSS)."
+      },
+      {
+        "name": "duration-ui",
+        "value": "300ms",
+        "purpose": "Menús, drawers, pestañas."
+      },
+      {
+        "name": "duration-reveal",
+        "value": "0.8-1.2s",
+        "purpose": "Reveals al scroll en la web pública."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "2xl",
+        "value": "1536px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal: Agendar videollamada, Enviar, Explorar.",
+      "html": "<button class=\"ds-btn-primary\">Agendar videollamada</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;height:48px;padding:0 24px;border:none;border-radius:var(--radius-md);background:var(--color-forest-900);color:var(--color-white);font:500 1rem/1.6 var(--font-sans);white-space:nowrap;transition:background .2s cubic-bezier(.215,.61,.355,1)}.ds-btn-primary:hover{background:var(--color-forest-600)}.ds-btn-primary:focus-visible{outline:2px solid var(--color-forest-600);outline-offset:2px}"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción alternativa: Escribir por WhatsApp.",
+      "html": "<button class=\"ds-btn-secondary\">Escribir por WhatsApp</button>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;height:48px;padding:0 24px;border:1px solid var(--color-line-strong);border-radius:var(--radius-md);background:transparent;color:var(--color-ink);font:500 1rem/1.6 var(--font-sans);white-space:nowrap;transition:background .2s}.ds-btn-secondary:hover{background:var(--color-sand-100)}.ds-btn-secondary:focus-visible{outline:2px solid var(--color-forest-600);outline-offset:2px}"
+    },
+    {
+      "name": "Campo de texto",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campos del formulario de lead y del panel.",
+      "html": "<input class=\"ds-input\" placeholder=\"tu@email.com\">",
+      "css": ".ds-input{height:48px;width:280px;padding:0 16px;border:1px solid var(--color-line-strong);border-radius:var(--radius-md);background:var(--color-white);color:var(--color-ink);font:400 1rem/1.6 var(--font-sans)}.ds-input::placeholder{color:var(--color-stone-500)}.ds-input[aria-invalid=true]{border-color:var(--color-danger)}.ds-input:focus-visible{outline:2px solid var(--color-forest-600);outline-offset:2px}"
+    },
+    {
+      "name": "Chip de filtro",
+      "kind": "chip",
+      "refersTo": "chip-selected",
+      "description": "Toggle de tipo de propiedad y filtros.",
+      "html": "<button class=\"ds-chip ds-chip--on\" aria-pressed=\"true\">Casas</button> <button class=\"ds-chip\" aria-pressed=\"false\">Apartamentos</button>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;padding:8px 16px;border:1px solid var(--color-line-strong);border-radius:999px;background:transparent;color:var(--color-ink);font:400 .875rem/1.5 var(--font-sans);transition:background .2s}.ds-chip:hover{background:var(--color-sand-100)}.ds-chip--on,.ds-chip--on:hover{background:var(--color-forest-900);border-color:var(--color-forest-900);color:var(--color-white)}.ds-chip:focus-visible{outline:2px solid var(--color-forest-600);outline-offset:2px}"
+    },
+    {
+      "name": "Badge de estado",
+      "kind": "chip",
+      "refersTo": "badge-available",
+      "description": "Estado de una propiedad.",
+      "html": "<span class=\"ds-badge ds-badge--available\">Disponible</span> <span class=\"ds-badge ds-badge--reserved\">Reservado</span> <span class=\"ds-badge ds-badge--sold\">Vendido</span>",
+      "css": ".ds-badge{display:inline-flex;padding:4px 12px;border-radius:999px;font:500 .75rem/1.4 var(--font-sans);letter-spacing:.12em;text-transform:uppercase}.ds-badge--available{background:var(--color-status-available-bg);color:var(--color-forest-900)}.ds-badge--reserved{background:var(--color-status-reserved-bg);color:var(--color-status-reserved-text)}.ds-badge--sold{background:var(--color-status-sold-bg);color:var(--color-ink)}"
+    },
+    {
+      "name": "Tarjeta",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Superficie blanca sobre papel.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-card__t\">USD 185.000</p><p class=\"ds-card__s\">Casa · Villa Morra</p></div>",
+      "css": ".ds-card{width:260px;padding:24px;border-radius:var(--radius-lg);background:var(--color-white);box-shadow:var(--shadow-xs);transition:box-shadow .2s}.ds-card:hover{box-shadow:var(--shadow-sm)}.ds-card__t{margin:0;font:500 1.25rem/1.3 var(--font-sans);color:var(--color-ink)}.ds-card__s{margin:4px 0 0;font:400 .875rem/1.5 var(--font-sans);color:var(--color-stone-500)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "El Edén habitado",
+    "overview": "**Creative North Star: \"El Edén habitado\"**\n\nEdennia vende la idea de llegar a un lugar verde y tranquilo y quedarse a vivir en él. El sistema traduce eso en **aire, fotografía protagonista y un verde que se gana cada aparición**. La casa —siempre una propiedad real— es la heroína; la interfaz se aparta. Densidad baja en la web pública (Persuade/Read), densidad media y precisa en el panel (Operate), con el mismo ADN de color, tipo y forma.\n\nLa marca vive en una tensión deliberada: un **logo caligráfico, orgánico y ornamental** frente a una **interfaz geométrica, sobria y europea**. El puente entre ambos es mínimo y preciso: la serif itálica de acento (que hace eco de las curvas del logo) y las versalitas espaciadas de las etiquetas (que hacen eco de \"HOMES\"). Nada más del ornamento del logo se traslada a la UI.\n\nEscena física: un europeo que mira propiedades de noche en el sofá con el móvil, o de día en el portátil; y un asesor en una oficina luminosa de Villa Morra. Ambos con buena luz ambiente → **tema claro**. No hay tema oscuro en v1; las secciones oscuras (`forest-900`) son momentos de ritmo, no un modo.\n\nRechazos confirmados: no clonar las referencias de Dribbble; no prueba social inventada; no paleta marrón/púrpura/naranja de las referencias.",
+    "keyCharacteristics": [
+      "Fotografía grande, real y sin filtros de color; la UI flota sobre ella con contención.",
+      "Un solo acento verde por pantalla; el resto, neutros cálidos.",
+      "Wordmark gigante \"Edennia\" en el hero, en capas con la casa recortada.",
+      "Esquinas generosas (16–24px) en medios y tarjetas; píldoras en navegación y chips.",
+      "Sombras casi invisibles: lo plano es la norma, la sombra indica \"flota\".",
+      "Movimiento lento y suave (0.8–1.2s, `power3.out`), siempre opcional."
+    ],
+    "rules": [
+      {
+        "name": "The One Leaf Rule",
+        "body": "Una pantalla tiene un solo acento de color protagonista. Si el botón primario es `forest-900`, nada más compite en verde saturado en ese viewport.",
+        "section": "colors"
+      },
+      {
+        "name": "The Photo Leads Rule",
+        "body": "Ningún fondo de color, gradiente o patrón se coloca donde debería ir una foto real. Si falta la foto, se muestra un placeholder neutro `sand-100` con el emblema, nunca un gradiente.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Italic Rule",
+        "body": "La serif itálica aparece como máximo una vez por titular y nunca en párrafos, botones ni en el panel admin.",
+        "section": "typography"
+      },
+      {
+        "name": "The Expansion Rule",
+        "body": "Todo texto de UI se diseña para +35 % de longitud (inglés→alemán). Ningún botón ni chip tiene ancho fijo.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Nada tiene sombra en reposo salvo lo que flota. Ninguna sombra con color que no sea `ink` o `forest-900`.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Glass Once Rule",
+        "body": "El vidrio translúcido (`backdrop-filter`) se usa solo en la nav en píldoras y la etiqueta de la casa del hero, nunca en tarjetas.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** usar fotografía real del inventario (subida desde el admin) en hero, tarjetas y ficha; placeholder `sand-100` + emblema si falta.",
+      "**Do** mantener un solo acento verde dominante por viewport (The One Leaf Rule).",
+      "**Do** usar `forest-900` para todo lo accionable principal y `stone-500` (no un gris arbitrario) para lo secundario.",
+      "**Do** reservar `leaf-400` para detalles no textuales o texto sobre `forest-900`.",
+      "**Do** dejar respirar: `section` entre bloques de la Home; 65ch máx. en textos.",
+      "**Do** mostrar precio con moneda explícita (\"USD 185.000\") y, si existe tasa, el aproximado en EUR en `stone-500`."
+    ],
+    "donts": [
+      "**Don't** mostrar el logo caligráfico y el wordmark gigante a la vez en el mismo viewport.",
+      "**Don't** usar `leaf-400` como color de texto sobre fondos claros ni texto blanco sobre él.",
+      "**Don't** inventar logos de \"confían en nosotros\", testimonios, contadores ni badges de descuento/urgencia.",
+      "**Don't** usar gradientes, glassmorphism en tarjetas, ni sombras de color que no sean `ink`/`forest-900`.",
+      "**Don't** usar Inter ni la tipografía del sistema como display en la web pública.",
+      "**Don't** usar el verde de WhatsApp, el púrpura de la ref. 01, el marrón de la ref. 02 ni el naranja de la ref. 03."
+    ]
+  }
+}

@@ -92,9 +92,43 @@ spacing:
   "32": "128px"
   section: "clamp(5rem, 3rem + 8vw, 10rem)"
   gutter: "clamp(1rem, 4vw, 3rem)"
+components:
+  button-primary:
+    backgroundColor: "{colors.forest-900}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.md}"
+    height: "48px"
+    padding: "0 24px"
+  button-primary-hover:
+    backgroundColor: "{colors.forest-600}"
+  button-secondary:
+    textColor: "{colors.ink}"
+    rounded: "{rounded.md}"
+    height: "48px"
+    padding: "0 24px"
+  button-secondary-hover:
+    backgroundColor: "{colors.sand-100}"
+  input:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.md}"
+    height: "48px"
+    padding: "0 16px"
+  chip-selected:
+    backgroundColor: "{colors.forest-900}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.pill}"
+    padding: "8px 16px"
+  badge-available:
+    backgroundColor: "{colors.status-available-bg}"
+    textColor: "{colors.forest-900}"
+    rounded: "{rounded.pill}"
+    padding: "4px 12px"
+  card:
+    backgroundColor: "{colors.white}"
+    rounded: "{rounded.lg}"
+    padding: "24px"
 ---
-
-<!-- SEED: established with the user before implementation; re-run /impeccable document once there's code to capture the actual tokens and components. -->
 
 # Design System: Edennia Homes
 
@@ -165,7 +199,9 @@ Paleta de bosque y arena: verdes profundos de la familia del logo sobre neutros 
 
 **Par A confirmado por el cliente (2026-11-01).** Descartado: Cabinet Grotesk + Switzer + Zodiak (más sobrio, pero el wordmark perdía personalidad).
 
-**Ambos pares:** verificar en Fase 2 cobertura Latin Extended (ñ, á, ü, ß para un futuro alemán) y cifras tabulares (`tnum`) para tablas y precios; si General Sans no trae `tnum`, las tablas del admin usan la pila del sistema para cifras.
+**Archivos (verificado en Fase 2):** fuentes variables autoalojadas en `packages/ui/src/fonts/` (Clash Display y General Sans, 200–700) e Instrument Serif vía `next/font/google` sin precarga. Cobertura comprobada para ñ, á–ú, ü, ß, ç, œ, €. **No incluyen** el signo ₲ ni cifras tabulares (`tnum`, dígitos proporcionales):
+- Guaraníes se escriben "Gs." o "PYG" (lo que da `Intl.NumberFormat`), nunca ₲.
+- Cifras que deben alinearse (columnas de tablas, KPIs del panel) usan `font-numeric tabular-nums` (pila del sistema). Precios sueltos en la web pública siguen en General Sans.
 
 ### Hierarchy
 - **Wordmark** (600, `clamp(5.5rem, 22vw, 21rem)`, 0.85): solo "Edennia" en el hero. Uno por sitio.
@@ -219,11 +255,37 @@ Sistema **plano por defecto**. La profundidad la dan la fotografía, las capas d
 
 ## Components
 
-> Seed: los componentes aún no existen. Aquí se fijan solo los invariantes que los primeros componentes deben cumplir; `/impeccable document` en modo scan los capturará en la Fase 2.
+> Implementados en `packages/ui/src/` (Fase 2) y visibles en `/styleguide` (solo desarrollo). Clases combinadas con `cn()` (clsx + tailwind-merge configurado con la escala tipográfica y `rounded-pill` propias). Ningún componente tiene ancho fijo (The Expansion Rule).
+
+### Buttons
+Firme y sobrio: el verde bosque es la única voz de acción.
+- **Shape:** esquinas suaves (`md`, 12px); `whitespace-nowrap`, crece con el texto.
+- **Primary:** fondo `forest-900`, texto blanco; hover `forest-600` (200ms, `ease-soft`).
+- **Secondary:** borde 1px `line-strong`, texto `ink`; hover fondo `sand-100`.
+- **Ghost:** sin borde, texto `ink`; hover fondo `sand-100`.
+- **Tamaños:** `lg` 48px / texto `body` (web, por defecto) · `md` 40px / texto `small` (panel).
+- **Disabled:** 50 % de opacidad y sin eventos. **Foco:** anillo global 2px `forest-600` con 2px de separación.
+- **WhatsApp:** variante secondary con icono; el verde de WhatsApp **no** se usa (choca con la marca).
+
+### Chips
+- **Estático** (sin `selected`): `<span>` píldora con borde `line`, texto `small` — características de una propiedad.
+- **Toggle** (`selected` booleano): `<button aria-pressed>`; seleccionado = `forest-900` sólido con texto blanco; no seleccionado = borde `line-strong`, hover `sand-100` — filtros y pestañas de tipo.
+
+### Badges
+- Píldora `label` en mayúsculas. Tonos: `available` (`forest-900` sobre `status-available-bg`), `reserved` (`status-reserved-text` sobre `status-reserved-bg`), `sold` (`ink` sobre `status-sold-bg`), `neutral` (`ink` sobre `sand-100`, p. ej. "Residencia incluida").
+
+### Cards / Containers
+- **Card:** `lg` (16px), fondo `white`, `shadow-xs`, padding 24px. Nunca tarjetas anidadas.
+- **Container:** ancho máx. `site` (1440px), centrado, márgenes `gutter` (16→48px).
+
+### Inputs / Fields
+- **Style:** 48px de alto, `md`, fondo `white`, borde 1px `line-strong` (≥3:1), texto `body` (16px: sin zoom en iOS), placeholder `stone-500`.
+- **Error:** prop `invalid` → `aria-invalid` + borde `danger`; el mensaje va en un elemento enlazado con `aria-describedby`, en `danger`.
+- **Disabled:** 50 % de opacidad.
 
 ### Logo
-- **Inventario:** `logo-color.png` y `logo-white.png` (3D, PNG). **No hay vector.**
-- **Versión plana SVG (a producir en Fase 2):** lockup completo y **emblema** (hoja + techo) en `forest-900` sobre claro y blanco sobre oscuro/foto. Primero se intenta vectorización automática de `logo-white.png`; si el trazo caligráfico no queda limpio, se encarga a un diseñador y se usa un placeholder (registrado como deuda con `shortcut:`).
+- **Inventario:** PNG 3D originales en `docs/brand/` + **SVG planos** en `packages/ui/src/logo/`: `lockup` (completo) y `emblem` (techo + ventana + hoja, recortado del propio logo), cada uno en `forest` (`#0F3D24`) y `white`. Vectorizados con potrace sobre el alfa de `logo-color.png` y optimizados con svgo; se pierden solo las venas internas de la hoja.
+- **Componente:** `<Logo variant="lockup|emblem" tone="forest|white" />` sirve el SVG como archivo estático (`next/image`, sin entrar al bundle JS); altura por defecto 40px, `preload` para el header.
 - **Dónde va cada versión:**
   - *Plana* → header compacto, footer, favicon (solo emblema), emails, Open Graph, panel admin.
   - *3D* → solo en el panel de foto del login y en el footer grande, a ≥240px de ancho, nunca sobre foto sin velo.
@@ -231,17 +293,15 @@ Sistema **plano por defecto**. La profundidad la dan la fotografía, las capas d
 - **Tamaño mínimo:** lockup 120px de ancho; emblema 24px. **Área de respeto:** la altura de la "H" de HOMES por cada lado.
 - **Prohibido:** recolorear la versión 3D, estirar, añadir sombras, rotar, poner sobre `leaf-400`.
 
-### Iconografía
+### Superficies del navegador
+- Selección de texto `leaf-400` con texto `ink` (8.0:1); cursor de texto `forest-600`; `accent-color` `forest-900` en checkboxes/radios nativos.
+
+### Iconografía (se instala con el primer uso, Fase 4)
 - **Lucide** en ambas apps (ya es la de shadcn/ui → una sola dependencia), trazo 1.5px, 20px en web / 18px en panel, color heredado del texto.
 - Iconos de características: `BedDouble`, `Bath`, `Ruler`/`Maximize`, `Car`, `CalendarDays`; amenidades con el glifo más cercano y, si falta (p. ej. quincho), un SVG propio con el mismo trazo.
 - Ningún icono sin etiqueta visible o `aria-label`.
 
-### Botones
-- **Primario:** `forest-900` con texto blanco, `md`, 48px de alto en web / 40px en panel; hover `forest-600`; foco con anillo 2px `forest-600` + 2px de separación.
-- **Secundario:** borde `line-strong`, texto `ink`; hover fondo `sand-100`.
-- **WhatsApp:** secundario con icono; el verde de WhatsApp **no** se usa (choca con la marca).
-
-### Pines del mapa
+### Pines del mapa (se construyen en la Fase 6)
 - Píldora `forest-900` con precio abreviado en blanco (p. ej. "USD 185k"); seleccionado/hover: `leaf-400` con texto `ink` y escala 1.08; clusters: círculo `white` con borde `forest-900` y número.
 
 ## Motion
