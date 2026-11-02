@@ -1,7 +1,15 @@
 -- Leads are the most sensitive data: anon never reads them, agents only their own, editors none.
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(10);
+select plan(12);
+
+-- ── Privileges (RLS limits rows, not columns or TRUNCATE) ────────────────────
+select is(
+  (select count(*) from pg_class c
+    where c.relnamespace = 'public'::regnamespace and c.relkind in ('r', 'p')
+      and (has_table_privilege('anon', c.oid, 'TRUNCATE') or has_table_privilege('authenticated', c.oid, 'TRUNCATE'))),
+  0::bigint, 'only the service role can TRUNCATE (TRUNCATE ignores RLS)');
+select is(has_table_privilege('anon', 'public.leads', 'SELECT'), false, 'anon has no privilege at all on leads');
 
 -- ── anon ─────────────────────────────────────────────────────────────────────
 set local role anon;

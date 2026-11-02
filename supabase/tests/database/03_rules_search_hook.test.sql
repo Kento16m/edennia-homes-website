@@ -1,7 +1,7 @@
 -- Business rules (publication, lead history), search RPC and the access token hook.
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(14);
+select plan(16);
 
 -- ── Publication rule ─────────────────────────────────────────────────────────
 select throws_ok(
@@ -56,6 +56,24 @@ select is(
   (select max(total_count) from public.search_properties('en', p_types => array['apartment']::public.property_type[],
                                                           p_amenity_keys => array['pool', 'gym'])),
   2::bigint, 'type + all-of amenities filter (apartments with pool and gym)');
+reset role;
+
+-- ── Catalog writes: editors yes, agents no (an RLS-filtered UPDATE touches 0 rows) ──
+select set_config('request.jwt.claims',
+  '{"sub":"00000000-0000-4000-8000-000000000002","role":"authenticated","user_role":"agent"}', true);
+set local role authenticated;
+with changed as (
+  update public.zone_translations set description = 'agent edit' where locale = 'es' returning 1
+)
+select is((select count(*) from changed), 0::bigint, 'an agent cannot edit zones');
+reset role;
+select set_config('request.jwt.claims',
+  '{"sub":"00000000-0000-4000-8000-000000000004","role":"authenticated","user_role":"editor"}', true);
+set local role authenticated;
+with changed as (
+  update public.zone_translations set description = 'editor edit' where locale = 'es' returning 1
+)
+select is((select count(*) from changed), 6::bigint, 'an editor can edit zone translations');
 reset role;
 
 -- ── Access token hook ────────────────────────────────────────────────────────

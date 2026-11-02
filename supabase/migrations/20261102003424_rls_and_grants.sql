@@ -26,6 +26,14 @@ end;
 $$;
 
 -- ── Grants ───────────────────────────────────────────────────────────────────
+-- Supabase's default ACLs give anon/authenticated ALL (incl. TRUNCATE) on every new public table:
+-- that would make the column grants below meaningless. Start from nothing, now and for future objects.
+revoke all on all tables in schema public from anon, authenticated;
+revoke all on all sequences in schema public from anon, authenticated;
+alter default privileges for role postgres in schema public revoke all on tables from anon, authenticated;
+alter default privileges for role postgres in schema public revoke all on sequences from anon, authenticated;
+alter default privileges for role postgres in schema public revoke execute on functions from public, anon, authenticated;
+
 grant usage on schema public to anon, authenticated, service_role;
 grant all on all tables in schema public to service_role;
 grant usage, select on all sequences in schema public to anon, authenticated, service_role;
@@ -62,48 +70,30 @@ grant insert (property_id, locale) on public.property_views to anon, authenticat
 -- ── locales ──────────────────────────────────────────────────────────────────
 create policy "locales: read enabled" on public.locales for select to anon, authenticated
   using (is_enabled or (select private.has_role('admin', 'agent', 'editor')));
-create policy "locales: admin writes" on public.locales for all to authenticated
-  using ((select private.has_role('admin'))) with check ((select private.has_role('admin')));
 
 -- ── zones, amenities (+ translations) ────────────────────────────────────────
 create policy "zones: read active" on public.zones for select to anon, authenticated
   using (is_active or (select private.has_role('admin', 'agent', 'editor')));
-create policy "zones: content staff writes" on public.zones for all to authenticated
-  using ((select private.has_role('admin', 'editor'))) with check ((select private.has_role('admin', 'editor')));
 
 create policy "zone_translations: read" on public.zone_translations for select to anon, authenticated
   using (exists (select 1 from public.zones z where z.id = zone_id));
-create policy "zone_translations: content staff writes" on public.zone_translations for all to authenticated
-  using ((select private.has_role('admin', 'editor'))) with check ((select private.has_role('admin', 'editor')));
 
 create policy "amenities: read" on public.amenities for select to anon, authenticated using (true);
-create policy "amenities: content staff writes" on public.amenities for all to authenticated
-  using ((select private.has_role('admin', 'editor'))) with check ((select private.has_role('admin', 'editor')));
 
 create policy "amenity_translations: read" on public.amenity_translations for select to anon, authenticated using (true);
-create policy "amenity_translations: content staff writes" on public.amenity_translations for all to authenticated
-  using ((select private.has_role('admin', 'editor'))) with check ((select private.has_role('admin', 'editor')));
 
 -- ── testimonials, investment_facts (+ translations) ──────────────────────────
 create policy "testimonials: read published" on public.testimonials for select to anon, authenticated
   using (is_published or (select private.has_role('admin', 'agent', 'editor')));
-create policy "testimonials: content staff writes" on public.testimonials for all to authenticated
-  using ((select private.has_role('admin', 'editor'))) with check ((select private.has_role('admin', 'editor')));
 
 create policy "testimonial_translations: read" on public.testimonial_translations for select to anon, authenticated
   using (exists (select 1 from public.testimonials t where t.id = testimonial_id));
-create policy "testimonial_translations: content staff writes" on public.testimonial_translations for all to authenticated
-  using ((select private.has_role('admin', 'editor'))) with check ((select private.has_role('admin', 'editor')));
 
 create policy "investment_facts: read published" on public.investment_facts for select to anon, authenticated
   using (is_published or (select private.has_role('admin', 'agent', 'editor')));
-create policy "investment_facts: content staff writes" on public.investment_facts for all to authenticated
-  using ((select private.has_role('admin', 'editor'))) with check ((select private.has_role('admin', 'editor')));
 
 create policy "investment_fact_translations: read" on public.investment_fact_translations for select to anon, authenticated
   using (exists (select 1 from public.investment_facts f where f.id = fact_id));
-create policy "investment_fact_translations: content staff writes" on public.investment_fact_translations for all to authenticated
-  using ((select private.has_role('admin', 'editor'))) with check ((select private.has_role('admin', 'editor')));
 
 -- ── profiles ─────────────────────────────────────────────────────────────────
 create policy "profiles: public advisor card" on public.profiles for select to anon
@@ -168,9 +158,6 @@ create policy "property_media_translations: public reads published" on public.pr
      where m.id = media_id and p.publication_status = 'published'));
 create policy "property_media_translations: staff read" on public.property_media_translations
   for select to authenticated using ((select private.has_role('admin', 'agent', 'editor')));
-create policy "property_media_translations: write" on public.property_media_translations for all to authenticated
-  using (private.can_edit_property((select m.property_id from public.property_media m where m.id = media_id)))
-  with check (private.can_edit_property((select m.property_id from public.property_media m where m.id = media_id)));
 
 -- ── leads (anon has no grant: permission denied) ─────────────────────────────
 create policy "leads: read admin or assigned agent" on public.leads for select to authenticated
@@ -219,18 +206,38 @@ create policy "property_views: staff read" on public.property_views for select t
 
 -- ── settings ─────────────────────────────────────────────────────────────────
 create policy "site_settings: read" on public.site_settings for select to anon, authenticated using (true);
-create policy "site_settings: admin writes" on public.site_settings for all to authenticated
-  using ((select private.has_role('admin'))) with check ((select private.has_role('admin')));
 
 create policy "site_settings_translations: read" on public.site_settings_translations
   for select to anon, authenticated using (true);
-create policy "site_settings_translations: content staff writes" on public.site_settings_translations
-  for all to authenticated
-  using ((select private.has_role('admin', 'editor'))) with check ((select private.has_role('admin', 'editor')));
 
 create policy "exchange_rates: read" on public.exchange_rates for select to anon, authenticated using (true);
-create policy "exchange_rates: admin writes" on public.exchange_rates for all to authenticated
-  using ((select private.has_role('admin'))) with check ((select private.has_role('admin')));
+
+-- ── Write policies for catalogs and settings (insert/update/delete only, so reads keep a single policy) ──
+do $$
+declare r record;
+begin
+  for r in select * from (values
+    ('locales', $p$(select private.has_role('admin'))$p$),
+    ('site_settings', $p$(select private.has_role('admin'))$p$),
+    ('exchange_rates', $p$(select private.has_role('admin'))$p$),
+    ('zones', $p$(select private.has_role('admin', 'editor'))$p$),
+    ('zone_translations', $p$(select private.has_role('admin', 'editor'))$p$),
+    ('amenities', $p$(select private.has_role('admin', 'editor'))$p$),
+    ('amenity_translations', $p$(select private.has_role('admin', 'editor'))$p$),
+    ('testimonials', $p$(select private.has_role('admin', 'editor'))$p$),
+    ('testimonial_translations', $p$(select private.has_role('admin', 'editor'))$p$),
+    ('investment_facts', $p$(select private.has_role('admin', 'editor'))$p$),
+    ('investment_fact_translations', $p$(select private.has_role('admin', 'editor'))$p$),
+    ('site_settings_translations', $p$(select private.has_role('admin', 'editor'))$p$),
+    ('property_media_translations',
+     $p$private.can_edit_property((select m.property_id from public.property_media m where m.id = media_id))$p$)
+  ) as t(tbl, pred) loop
+    execute format('create policy "%1$s: insert" on public.%1$I for insert to authenticated with check (%2$s)', r.tbl, r.pred);
+    execute format('create policy "%1$s: update" on public.%1$I for update to authenticated using (%2$s) with check (%2$s)', r.tbl, r.pred);
+    execute format('create policy "%1$s: delete" on public.%1$I for delete to authenticated using (%2$s)', r.tbl, r.pred);
+  end loop;
+end;
+$$;
 
 -- ── audit_log ────────────────────────────────────────────────────────────────
 create policy "audit_log: admin reads" on public.audit_log for select to authenticated

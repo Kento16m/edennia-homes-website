@@ -1,12 +1,14 @@
 import { z } from 'zod'
+import { Constants } from './database.types'
 
-// Mirrors of the Postgres enums (supabase/migrations/*_extensions_and_types.sql).
-export const propertyTypes = ['house', 'apartment', 'condominium'] as const
-export const sortOptions = ['relevance', 'price_asc', 'price_desc', 'newest', 'area_desc'] as const
-export const leadSources = ['property_form', 'contact_form', 'whatsapp', 'phone', 'other'] as const
-export const leadGoals = ['invest', 'live', 'both'] as const
-export const contactChannels = ['whatsapp', 'phone', 'email', 'video_call'] as const
-export const leadInterests = ['visit', 'video_call', 'info', 'financing'] as const
+// Enum values come from the generated database types, so they can't drift from the migrations.
+const enums = Constants.public.Enums
+export const propertyTypes = enums.property_type
+export const leadSources = enums.lead_source
+export const leadGoals = enums.lead_goal
+export const contactChannels = enums.contact_channel
+export const leadInterests = enums.lead_interest
+export const sortOptions = ['relevance', 'price_asc', 'price_desc', 'newest', 'area_desc'] as const // search_properties p_sort
 
 // ── Explorer filters (URL is the source of truth) ────────────────────────────
 // Every field fails soft: an invalid value is dropped, the rest of the URL still applies.
