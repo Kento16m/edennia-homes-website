@@ -61,7 +61,7 @@ export default function Styleguide() {
       <Container>
         <div className="mb-16 flex flex-wrap items-end justify-between gap-8">
           <h1 className="text-headline font-display">Styleguide</h1>
-          <Logo variant="lockup" tone="forest" className="h-20 w-auto" priority />
+          <Logo variant="lockup" tone="forest" className="h-20" preload />
         </div>
 
         <Section title="Color">

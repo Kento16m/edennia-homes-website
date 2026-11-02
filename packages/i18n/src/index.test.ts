@@ -14,6 +14,9 @@ describe('getTranslation', () => {
   it('honours an explicit fallback locale', () => {
     expect(getTranslation({ en: 'Hi' }, 'de', 'en')).toEqual({ value: 'Hi', locale: 'en', isFallback: true })
   })
+  it('treats an empty translation as missing and falls back', () => {
+    expect(getTranslation({ es: 'Hola', en: '' }, 'en')).toEqual({ value: 'Hola', locale: 'es', isFallback: true })
+  })
   it('returns null when neither the locale nor the fallback exist', () => {
     expect(getTranslation({}, 'es')).toBeNull()
   })

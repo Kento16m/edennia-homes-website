@@ -7,15 +7,17 @@ export function isLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value)
 }
 
-/** Picks `locale` from a translations map, falling back to `fallback` (default locale) when missing. */
+const present = <T,>(v: T | undefined): v is T => v !== undefined && v !== ''
+
+/** Picks `locale` from a translations map, falling back to `fallback` (default locale) when missing or empty. */
 export function getTranslation<T>(
   translations: Partial<Record<string, T>>,
   locale: string,
   fallback: string = defaultLocale,
 ): { value: T; locale: string; isFallback: boolean } | null {
   const own = translations[locale]
-  if (own !== undefined) return { value: own, locale, isFallback: false }
+  if (present(own)) return { value: own, locale, isFallback: false }
   const other = translations[fallback]
-  if (other !== undefined) return { value: other, locale: fallback, isFallback: true }
+  if (present(other)) return { value: other, locale: fallback, isFallback: true }
   return null
 }

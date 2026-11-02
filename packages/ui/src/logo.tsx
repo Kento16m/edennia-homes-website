@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { cn } from './cn'
 import emblemForest from './logo/emblem-forest.svg'
 import emblemWhite from './logo/emblem-white.svg'
 import lockupForest from './logo/lockup-forest.svg'
@@ -14,11 +15,17 @@ export type LogoProps = {
   variant: 'lockup' | 'emblem'
   tone: 'forest' | 'white'
   className?: string
-  priority?: boolean
+  preload?: boolean
 }
 
-export function Logo({ variant, tone, className, priority }: LogoProps) {
+export function Logo({ variant, tone, className, preload }: LogoProps) {
   return (
-    <Image src={sources[variant][tone]} alt="Edennia Homes" className={className} priority={priority} unoptimized />
+    <Image
+      src={sources[variant][tone]}
+      alt="Edennia Homes"
+      className={cn('h-10 w-auto', className)}
+      preload={preload}
+      unoptimized
+    />
   )
 }

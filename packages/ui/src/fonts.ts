@@ -22,6 +22,7 @@ const instrumentSerif = Instrument_Serif({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-instrument-serif',
   display: 'swap',
+  preload: false, // accent only (≤1 word per heading) and never used in admin
 })
 
 export const fontVariables = [clashDisplay.variable, generalSans.variable, instrumentSerif.variable].join(' ')
