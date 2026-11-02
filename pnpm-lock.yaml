@@ -274,6 +274,20 @@ importers:
         specifier: ^10
         version: 10.1.8(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))
 
+  packages/db: {}
+
+  packages/i18n:
+    devDependencies:
+      '@edennia/config':
+        specifier: workspace:*
+        version: link:../config
+      typescript:
+        specifier: ^5
+        version: 5.9.3
+      vitest:
+        specifier: ^5.0.5
+        version: 5.0.5(vite@8.3.5(jiti@2.7.0))
+
   packages/ui:
     dependencies:
       class-variance-authority:
