@@ -5,6 +5,14 @@
   "exports": {
     "./tsconfig.base.json": "./tsconfig.base.json",
     "./tsconfig.nextjs.json": "./tsconfig.nextjs.json",
-    "./prettier": "./prettier.config.mjs"
+    "./prettier": "./prettier.config.mjs",
+    "./eslint": "./eslint.config.mjs"
+  },
+  "dependencies": {
+    "eslint-config-next": "16.4.3",
+    "eslint-config-prettier": "^10"
+  },
+  "peerDependencies": {
+    "eslint": "^9"
   }
 }
